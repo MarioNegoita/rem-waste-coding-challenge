@@ -1,9 +1,8 @@
 import React from "react";
-import { skipOptions } from "../constants";
 
 const ConfirmSkipSize = ({ skipData }) => {
   return (
-    <div className="flex flex-col  w-full bg-[#efedff] border-y-2 border-[#404271] p-4 shadow-lg text-[#404271] gap-2">
+    <div className=" flex flex-col  w-full bg-[#efedff] border-y-2 border-[#404271] p-4 shadow-lg text-[#404271] gap-2">
       <div className="grid grid-cols-3">
         <p className="font-bold text-lg text-center">
           {skipData.size} yard skip

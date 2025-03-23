@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import WarningMessages from "./WarningMessages";
+import WarningMessages from "./global/WarningMessages";
 
 const SkipCard = ({
   skipData,
   hasHeavyWaste,
-  handleSelectSkip,
+  handleSetModalInformation,
   selectedSkip,
 }) => {
   const [imageSrc, setImageSrc] = useState(null);
@@ -21,7 +21,7 @@ const SkipCard = ({
   const isSelected = selectedSkip?.id === skipData.id;
 
   const cardClasses = `
-    w-full flex flex-col rounded-lg bg-white text-[#404271] shadow-md transition-all border-2
+    w-full flex flex-col rounded-lg bg-white text-[#404271] shadow-md transition-all border-3 overflow-hidden
     ${isSelected ? "border-[#23ce6b]" : "border-white"}
     ${
       isSelectable &&
@@ -46,10 +46,10 @@ const SkipCard = ({
 
   return (
     <div
-      onClick={isSelectable ? () => handleSelectSkip(skipData) : null}
+      onClick={isSelectable ? () => handleSetModalInformation(skipData) : null}
       className={cardClasses}
     >
-      <div className="h-70 w-full rounded-t-md overflow-hidden flex relative">
+      <div className="h-70 w-full overflow-hidden flex relative">
         <img
           src={imageSrc}
           alt={`Skip of size ${skipData.size}`}
@@ -89,10 +89,11 @@ const SkipCard = ({
 };
 
 const getSkipImageName = (size) => {
-  if (size <= 8) return "small-skip";
+  //   if (size <= 8) return "extrasmall-skip";
+  if (size <= 8) return "small-skipv2";
   if (size <= 14) return "medium-skip";
   if (size <= 20) return "large-skip";
-  return "extralarge-skip";
+  return "extralarge-skipv3";
 };
 
 export default SkipCard;
