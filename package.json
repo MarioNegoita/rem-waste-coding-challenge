@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "set TAILWIND_MODE=jit && vite --host",
-    "build": "set TAILWIND_MODE=jit && vite build",
+    "dev": " vite --host",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "set TAILWIND_MODE=jit && vite preview"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
