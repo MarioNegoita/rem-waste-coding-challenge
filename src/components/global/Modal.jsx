@@ -36,7 +36,7 @@ const Modal = ({
   const ModalContent = () => (
     <div
       ref={modalRef}
-      className="fixed top-0 left-0 h-[100svh] w-screen flex justify-center items-center z-10 backdrop-brightness-50 p-4 overflow-auto "
+      className="fixed top-0 left-0 h-[100vh] w-screen flex justify-center items-center z-10 backdrop-brightness-50 p-4 overflow-auto "
     >
       <div className=" bg-white rounded-lg text-secondary  ">
         <div className="flex justify-between w-full items-center p-4 border-b-2 ">
