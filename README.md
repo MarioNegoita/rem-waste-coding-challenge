@@ -38,3 +38,42 @@ To provide comprehensive information, I introduced an intermediary modal step be
 ## Conclusion
 
 Thank you for providing this opportunity to demonstrate my skills. I look forward to hearing your feedback and discussing my approach further.
+
+## Running the Project Locally
+
+If you'd like to test this redesign on your own machine, follow these steps:
+
+1.  **Fork the Repository:**
+
+    * Click the "Fork" button at the top right of this repository's page on GitHub.
+    * This will create a copy of the repository in your own GitHub account.
+
+2.  **Clone the Forked Repository:**
+
+    * Open your terminal and navigate to the directory where you want to clone the project.
+
+        ```bash
+        git clone [https://github.com/MarioNegoita/rem-waste-coding-challenge.git](https://www.google.com/search?q=https://github.com/MarioNegoita/rem-waste-coding-challenge.git)
+        ```
+    * Navigate to the cloned directory:
+        ```bash
+        cd MarioNegoita/rem-waste-coding-challenge
+        ```
+
+3.  **Install Dependencies:**
+
+    * Run the following command to install the project's dependencies:
+
+        ```bash
+        npm install
+        ```
+
+4.  **Start the Development Server:**
+
+    * Run the following command to start the Vite development server:
+
+        ```bash
+        npm run dev
+        ```
+
+    * This will launch the application in your browser. You can usually access it at `http://localhost:5173/`.
