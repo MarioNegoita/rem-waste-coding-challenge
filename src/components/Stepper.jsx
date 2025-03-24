@@ -10,35 +10,41 @@ const Stepper = ({ items, activeStep, setActiveStep }) => {
 
   return (
     <>
-      <div className="w-full hidden lg:flex items-center py-4 bg-white rounded-lg px-2">
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className={`flex items-center font-bold ${
-              index < items.length - 1 ? "flex-grow" : ""
-            }
-          ${index <= activeStep ? "text-[#404271]" : "text-slate-400"}
+      <div className="w-full hidden lg:block bg-white rounded-lg p-2 gap-2">
+        <p className="text-secondary font-bold text-3xl text-center ">
+          {items[activeStep].description}
+        </p>
+
+        <div className="w-full hidden lg:flex items-center py-4 ">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className={`flex items-center font-bold ${
+                index < items.length - 1 ? "flex-grow" : ""
+              }
+          ${index <= activeStep ? "text-secondary" : "text-slate-400"}
           `}
-          >
-            <button
-              onClick={() => setActiveStep(index)}
-              className="flex items-center gap-2 whitespace-nowrap cursor-pointer"
             >
-              {item.icon}
-              <span>{item.label}</span>
-            </button>
-            {index < items.length - 1 && (
-              <div
-                className={`flex-grow transition-colors ease-linear h-0.5 ${
-                  index < activeStep ? "bg-[#404271]" : "bg-gray-300"
-                } mx-2`}
-              ></div>
-            )}
-          </div>
-        ))}
+              <button
+                onClick={() => setActiveStep(index)}
+                className="flex items-center gap-2 whitespace-nowrap cursor-pointer"
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </button>
+              {index < items.length - 1 && (
+                <div
+                  className={`flex-grow transition-colors ease-linear h-0.5 ${
+                    index < activeStep ? "bg-secondary" : "bg-gray-300"
+                  } mx-2`}
+                ></div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className=" flex lg:hidden  items-center transition-all text-[#404271] gap-4 bg-white p-4 rounded-lg">
+      <div className=" flex lg:hidden  items-center transition-all text-secondary gap-4 bg-white p-4 rounded-lg">
         <div className="relative flex items-center justify-center">
           <svg width={size} height={size}>
             <circle
@@ -77,7 +83,7 @@ const Stepper = ({ items, activeStep, setActiveStep }) => {
           </div>
 
           {activeStep + 1 < items.length && (
-            <p className="font-bold text-[#757496]">
+            <p className="font-bold text-accent">
               Next: {items[activeStep + 1].label}
             </p>
           )}
