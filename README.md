@@ -1,12 +1,40 @@
-# React + Vite
+# Redesign Coding Challenge - Approach Explanation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I found this coding challenge to be a very engaging experience.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Vite:** For fast development and bundling.
+* **React:** For building the user interface.
+* **Tailwind CSS:** For styling and responsive design.
 
-## Expanding the ESLint configuration
+I opted to implement custom components rather than utilizing a UI component library, as the scope of the page was manageable.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Design Goals
+
+My primary goal was to create a **modern and intuitive design** that helps users make informed decisions about their waste skip size selection.
+
+* **Clarity:** Ensuring all necessary information is readily accessible.
+* **Professionalism:** Selecting a color palette with strong contrast for readability.
+* **User Experience:** Giving the user enough information to make the best decision as well as making the app easy and intuitive to use.
+
+## Implementation Details
+
+### Mobile-First Design
+
+I adopted a mobile-first design strategy.
+
+* **Stepper (Mobile):** Implemented a progress circle accompanied by the page title and the subsequent step in the process.
+* **Stepper (Desktop):** Adapted the existing stepper, incorporating the title above the description to provide clear context for each step.
+
+### Skip Cards Section
+
+refined the spacing and eliminated redundant text, such as "Select skip," to make the information as concise as possible. By restructuring the text hierarchy and adjusting the spacing, I aimed to maximize clarity and ensure users can easily discern their selected skip.
+
+### Intermediate Modal
+
+To provide comprehensive information, I introduced an intermediary modal step between skip selection and proceeding to the next phase. This modal displays an image illustrating the skip's size and a detailed description, leading to a more informed user decision.
+
+## Conclusion
+
+Thank you for providing this opportunity to demonstrate my skills. I look forward to hearing your feedback and discussing my approach further.
