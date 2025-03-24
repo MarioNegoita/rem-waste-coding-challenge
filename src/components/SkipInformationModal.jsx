@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from "./global/Modal";
+
+import { getSkipModalImageName } from "../utils";
 import { skipDescription } from "../constants";
 
 const SkipInformationModal = ({
@@ -13,7 +15,7 @@ const SkipInformationModal = ({
 
   useEffect(() => {
     if (skipData && isOpen) {
-      const imageName = getSkipImageName(skipData?.size);
+      const imageName = getSkipModalImageName(skipData?.size);
 
       import(`../assets/skipImages/${imageName}.jpg`)
         .then((module) => setImageSrc(module.default))
@@ -27,6 +29,11 @@ const SkipInformationModal = ({
       setIsOpen={setIsOpen}
       title={`${skipData?.size} yards skip`}
       onClose={() => {
+        setModalData(null);
+        setImageSrc(null);
+      }}
+      onAccept={() => {
+        handleSelectSkip(skipData);
         setModalData(null);
         setImageSrc(null);
       }}
@@ -45,37 +52,8 @@ const SkipInformationModal = ({
           <div className="text-center">{skipDescription[skipData?.id]}</div>
         </div>
       }
-      modalFooter={
-        <div className="flex w-full justify-between px-4 gap-4">
-          <button
-            onClick={() => {
-              setIsOpen(false);
-              setModalData(null);
-              setImageSrc(null);
-            }}
-            className="border-2 text-[#404271] border-[#757496] hover:text-white rounded-lg p-2 px-4 font-bold text-xl hover:bg-[#757496] cursor-pointer w-full"
-          >
-            back
-          </button>
-
-          <button
-            onClick={() => {
-              handleSelectSkip(skipData);
-              setModalData(null);
-              setImageSrc(null);
-            }}
-            className="bg-[#404271] rounded-lg p-2 px-4 font-bold text-xl hover:bg-[#757496] text-white cursor-pointer w-full"
-          >
-            Select
-          </button>
-        </div>
-      }
     />
   );
-};
-
-const getSkipImageName = (size) => {
-  return `${size}-yard-skip-hire`;
 };
 
 export default SkipInformationModal;

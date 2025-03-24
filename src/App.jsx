@@ -5,7 +5,6 @@ import SkipCard from "./components/SkipCard";
 import ConfirmSkipSize from "./components/ConfirmSkipSize";
 import Stepper from "./components/Stepper";
 import SkipInformationModal from "./components/SkipInformationModal";
-import CheckBoxInput from "./components/global/CheckBoxInput";
 import {
   Truck,
   Calendar,
@@ -15,6 +14,40 @@ import {
   TrashCan,
   Loader,
 } from "./components/global/icons";
+import SwitchInput from "./components/global/SwitchInput";
+
+const stepperItems = [
+  {
+    label: "Postcode",
+    icon: <LocationPin />,
+    description: "Insert your post code",
+  },
+  {
+    label: "Waste Type",
+    icon: <TrashCan />,
+    description: "What waste are you disposing of?",
+  },
+  {
+    label: "Select Skip",
+    icon: <Truck />,
+    description: "Choose your skip size",
+  },
+  {
+    label: "Permit Check",
+    icon: <Shield />,
+    description: "Check if you need a permit",
+  },
+  {
+    label: "Choose Date",
+    icon: <Calendar />,
+    description: "Choose delivery date",
+  },
+  {
+    label: "Payment",
+    icon: <CreditCard />,
+    description: "Payment information",
+  },
+];
 
 const App = () => {
   const [skipOptions, setSkipOptions] = useState([]);
@@ -26,17 +59,8 @@ const App = () => {
   const [activeStep, setActiveStep] = useState(2);
   const scrollPosition = useRef(0);
 
-  const stepperItems = [
-    { label: "Postcode", icon: <LocationPin />, command: () => {} },
-    { label: "Waste Type", icon: <TrashCan />, command: () => {} },
-    { label: "Select Skip", icon: <Truck />, command: () => {} },
-    { label: "Permit Check", icon: <Shield />, command: () => {} },
-    { label: "Choose Date", icon: <Calendar />, command: () => {} },
-    { label: "Payment", icon: <CreditCard />, command: () => {} },
-  ];
-
-  const handleCheckboxChange = (event) => {
-    setHasHeavyWaste(event.target.checked);
+  const handleCheckboxChange = () => {
+    setHasHeavyWaste(!hasHeavyWaste);
     setSelectedSkip(null);
   };
 
@@ -103,7 +127,7 @@ const App = () => {
 
       <div
         id="portal-root"
-        className="flex flex-col min-h-screen bg-[#efedff] gap-8 pb-4"
+        className="flex flex-col min-h-screen bg-primary gap-8 pb-4"
       >
         <div className="w-full px-4 pt-4">
           <Stepper
@@ -113,24 +137,15 @@ const App = () => {
           />
         </div>
 
-        <div className="px-4">
-          <p className="text-[#404271] font-bold text-3xl text-center lg:text-start hidden lg:block ">
-            Choose Your Skip Size
-          </p>
-
-          <p className="text-[#757496] text-2xl text-center lg:text-start  font-semibold">
-            Select the skip size that best suits your needs
-          </p>
-        </div>
-
         {!isLoading ? (
           <div className="flex flex-col gap-2">
-            <CheckBoxInput
-              id="hasHeavyWaste"
-              onChange={handleCheckboxChange}
-              checked={hasHeavyWaste}
-              label="I have heavy waste"
-            />
+            <div className="w-full flex justify-end px-4">
+              <SwitchInput
+                onChange={handleCheckboxChange}
+                checked={hasHeavyWaste}
+                label="I have heavy waste"
+              />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 ">
               {skipOptions.map((skip) => (
